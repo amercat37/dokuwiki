@@ -1,0 +1,3 @@
+# Ignore local docker-compose test files
+docker-compose.atm
+docker-compose.nfs

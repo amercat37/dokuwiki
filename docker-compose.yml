@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  web:
+    image: amercat37/dokuwiki:7311ab.20180422b.01
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - type: bind
+        source: /volumes/dokuwiki/web/data
+        target: /var/www/html/data
+      - type: bind
+        source: /volumes/dokuwiki/web/lib
+        target: /var/www/html/lib
+      - type: bind
+        source: /volumes/dokuwiki/web/conf
+        target: /var/www/html/conf
+      - type: bind
+        source: /volumes/dokuwiki/web/apache2
+        target: /etc/apache2
+    ports:
+      - "4443:443"
+      - "4080:80"
